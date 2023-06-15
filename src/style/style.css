@@ -1,1 +1,61 @@
 @import url(./reset.css);
+
+.container {
+  width: min(100% - 30px, 1080px);
+  margin-inline: auto;
+}
+
+header {
+  height: 56px;
+  overflow: hidden;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.title {
+  width: 20%;
+  height: 40px;
+}
+
+.title h1 {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--app-dark-bg);
+  line-height: var(--line-height);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+nav {
+  width: 80%;
+  text-align: right;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li{ 
+  display: inline;
+  line-height: var(--line-height);
+  cursor: default;
+}
+
+nav ul li a {
+  font-size: 19px;
+  letter-spacing: 1px;
+  color: var(--app-dark-bg);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+nav ul li a:hover {
+  text-decoration: underline #fff;
+}
+
+nav ul li + li {
+  margin-left: 18px;
+}
