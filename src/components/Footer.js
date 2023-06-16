@@ -9,7 +9,6 @@ function Footer() {
       <nav className="footer-nav">
         <ul>
           <li><a href="#">About</a></li>
-          <li><a href="#">Pokedex</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Terms & Conditions</a></li>
         </ul>

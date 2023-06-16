@@ -16,7 +16,7 @@ function Detail() {
               setPokemonDetails(res.data);
               setTimeout(()=>{
                 setIsLoading(false);
-              }, 2000)
+              }, 1000)
               
             })
             .catch(err => {
@@ -43,7 +43,7 @@ function Detail() {
           <p>Height: {pokemonDetails.height} ft</p>
           <p>Weight: {pokemonDetails.weight} lbs</p>
           <p>Number of Moves: {pokemonDetails.moves.length}</p>
-          <Link to="/"><a>Back to Pokedex</a></Link>
+          <Link to="/">Back to Pokedex</Link>
         </div>
       </div>
     </div>
