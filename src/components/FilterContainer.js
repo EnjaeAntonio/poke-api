@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
-function FilterContainer({setSortedPokemon, pokemon}) {
+function FilterContainer({setPokemon, pokemon}) {
 
   const handleSortChange = (e) =>{
     const sortOption = e.target.value
-    setSortedPokemon((prevPokemon) => {
-      const sortedPokemon = [...prevPokemon];
+    setPokemon((prevPokemon) => {
+      const pokemon = [...prevPokemon];
       if (sortOption === 'name') {
-        sortedPokemon.sort((a, b) => a.data.name.localeCompare(b.data.name));
+        pokemon.sort((a, b) => a.data.name.localeCompare(b.data.name));
       } else if (sortOption === 'type') {
-        sortedPokemon.sort((a, b) => a.data.types[0].type.name.localeCompare(b.types[0].type.name));
+        pokemon.sort((a, b) => a.data.types[0].type.name.localeCompare(b.types[0].type.name));
       } else {
         return pokemon;
       }
-      return sortedPokemon;
+      return pokemon;
     });
   };
   

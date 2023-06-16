@@ -6,7 +6,6 @@ import Loading from "../components/Loading";
 import FilterContainer from "../components/FilterContainer";
 function Catalog() {
     const [pokemon, setPokemon] = useState([]);
-    const [sortedPokemon, setSortedPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon?limit=30");
@@ -35,7 +34,7 @@ function Catalog() {
       }, [currentPage]);
 
     useEffect(()=>{
-      setSortedPokemon(pokemon);
+      setPokemon(pokemon);
       }, [pokemon])
       
   return (
@@ -45,10 +44,10 @@ function Catalog() {
       <Helmet>
         <title>Pokedex</title>
       </Helmet>
-      <FilterContainer setSortedPokemon={setSortedPokemon} pokemon={pokemon}/>
+      <FilterContainer setPokemon={setPokemon} pokemon={pokemon}/>
         <div className="catalog container">
-            {sortedPokemon ?
-             sortedPokemon.map((p, index) => 
+            {pokemon ?
+             pokemon.map((p, index) => 
               <div className="pokemon" key={index}>
                 <Link to={`/pokemon/${p.data.id}`} key={p.data.id}>
                   <img src={p.data.sprites.other["official-artwork"].front_default} alt={p.data.name} />        
