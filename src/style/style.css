@@ -283,6 +283,10 @@ footer{
     grid-template-columns: none;
     grid-template-rows: repeat(2, auto);
   }
+  .details-text{
+    justify-content: center;
+    place-items: center;
+  }
   .catalog {
     display: grid;
     grid-template-columns: repeat(2, auto);
