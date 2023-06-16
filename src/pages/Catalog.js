@@ -17,7 +17,9 @@ function Catalog() {
           try {
             setIsLoading(true)
             const response = await axios.get(currentPage);
-            const details = await response.data.results.map((p) => axios.get(p.url))
+            const details = await Promise.all(
+                response.data.results.map((p) => axios.get(p.url))
+            );
             setPokemon(details.map((p) => ({...p.data, types: p.data.types})));
             setTimeout(() =>{
               setIsLoading(false);
@@ -30,8 +32,7 @@ function Catalog() {
             };
           }
         fetchData();
-      }, [pokemon, currentPage]);
-      
+      }, [currentPage]);
     useEffect(()=>{
       const sortedPokemon = [...pokemon];
         if (sortOption === 'name') {

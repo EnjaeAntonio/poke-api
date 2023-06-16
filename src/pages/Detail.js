@@ -24,7 +24,7 @@ function Detail() {
             })
         }
         fetchData();
-    }, [id]);
+    }, [id, pokeURL]);
   return (
     <>
     {isLoading ? <Loading /> :

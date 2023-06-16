@@ -7,7 +7,7 @@ function FilterContainer({sortOption, setSortOption}) {
             <h1>Pokedex</h1>
           </div>
           <div className="options">
-            <label for="filter">Sort By: </label>
+            <label htmlFor="filter">Sort By: </label>
             <select className="filter" name="filter" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
               <option value="default">Default</option>
               <option value="name">Name</option>
