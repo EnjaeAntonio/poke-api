@@ -1,17 +1,10 @@
 @import url(./reset.css);
 
-.container {
-  width: min(100% - 30px, 1080px);
-  margin-inline: auto;
-}
-
 header {
   height: 56px;
   overflow: hidden;
-}
-
-.flexbox {
-  display: flex;
+  background-color: var(--app-red);
+  width: 100%;
 }
 
 .title {
@@ -19,13 +12,8 @@ header {
   height: 40px;
 }
 
-.title h1 {
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--app-dark-bg);
-  line-height: var(--line-height);
-  text-transform: uppercase;
-  letter-spacing: 0.2px;
+.title img {
+  height: 100%;
 }
 
 nav {
@@ -58,4 +46,40 @@ nav ul li a:hover {
 
 nav ul li + li {
   margin-left: 18px;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 1.8rem;
+}
+
+.pokemon {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  place-items: center;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.pokemon img {
+  max-width: 100%;
+  max-height: 100px; 
+  object-fit: contain;
+}
+
+.pokemon h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.pokemon p {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
 }

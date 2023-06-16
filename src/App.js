@@ -6,19 +6,17 @@ import Header from "./components/Header";
 import './style/style.css';
 import { Routes, Route} from 'react-router-dom';
 import Footer from "./components/Footer";
-import { useState } from 'react';
 function App() {
 
   return (
-    <div className="container">
-      <Header
-
-      />
+    
+    <div className="">
+      <Header />
       <Routes>
-        <Route exact path="/" element={<Catalog />} />
-        <Route exact path="/detail/:id" element={<Detail />} />
-        <Route exact path="/create-pokemon" element={<NewPokemonForm />} />
-        <Route exact path="/not-found" element={<NotFound />} />
+        <Route path="/" element={<Catalog />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/create-pokemon" element={<NewPokemonForm />} />
+        <Route path="/not-found" element={<NotFound />} />
       </Routes>
       <Footer 
       

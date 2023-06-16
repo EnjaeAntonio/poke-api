@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 function Catalog() {
 
     const [pokemon, setPokemon] = useState([]);
@@ -13,7 +14,8 @@ function Catalog() {
                 response.data.results.map((p) => axios.get(p.url))
             );
             setPokemon(details.map((p) => p.data));
-            console.log(details.map((p) => p.data))
+            console.log(details.map((p) => ({...p.data, types: p.data.types})));
+
           } catch (error) {
               if (error.response && error.response.status === 404){
                 setErrorMessage('User Not Found');
@@ -26,16 +28,26 @@ function Catalog() {
       }, []);
     
   return (
-    <div>
-        <h1>Catalog</h1>
-        {pokemon.map((p, index) => 
-        <div key={index}>
-            <p>{p.name}</p>
-            <p>Height: {p.height}ft</p>
-            <p>Number of Moves: {p.moves.length}</p>
-            <img src={p.sprites.front_default} title={p.name}></img>
+    <div className="container">
+        <h1>Pokedex</h1>
+        <div className="catalog">
+            {pokemon.map((p, index) => 
+            <Link to={`/detail/${p.id}`} key={p.id}>
+            <div className="pokemon" key={index}>
+                <img src={p.sprites.front_default} title={p.name}></img>
+                <h2>{p.name}</h2>
+                <div className="flexbox">
+                    {p.types.map((type) => (
+                    <p>{type.type.name}</p>
+                    ))}
+                </div>
+
             </div>
-        )}
+            </Link>
+            )}
+
+        </div>
+
     </div>
   )
 }

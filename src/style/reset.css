@@ -1,13 +1,14 @@
 @charset "utf-8";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 /* ---------------------------------------------------- 
                                                     
 ---------------------------------------------------- */
 .container {
-  width: min(100% - 30px, 400px);
+  width: min(100% - 30px, 1080px);
   margin-inline: auto;
+}
+
+.flexbox {
+  display: flex;
 }
 
 :root {

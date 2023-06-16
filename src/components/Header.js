@@ -3,7 +3,7 @@ function Header() {
     <header>
             <div className="container flexbox">
                 <div className="title">
-                <img src="https://pokeapi.co/static/pokeapi_256.3fa72200.png" alt="PokeAPI" />  
+                <img src="https://raw.githubusercontent.com/EnjaeAntonio/img/main/Other/pokeapi.png" />  
                 </div>
                 <nav>
                     <ul>
