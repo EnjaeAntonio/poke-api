@@ -25,7 +25,6 @@ function Detail() {
         }
         fetchData();
     }, [id]);
-
   return (
     <>
     {isLoading ? <Loading /> :

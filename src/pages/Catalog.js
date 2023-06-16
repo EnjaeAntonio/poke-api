@@ -17,9 +17,7 @@ function Catalog() {
           try {
             setIsLoading(true)
             const response = await axios.get(currentPage);
-            const details = await Promise.all(
-                response.data.results.map((p) => axios.get(p.url))
-            );
+            const details = await response.data.results.map((p) => axios.get(p.url))
             setPokemon(details.map((p) => ({...p.data, types: p.data.types})));
             setTimeout(() =>{
               setIsLoading(false);
@@ -28,16 +26,11 @@ function Catalog() {
               setTimeout(() =>{
                 setIsLoading(false);
               },1000)
-              if (error.response && error.response.status === 404){
-                setErrorMessage('Pokemon Not Found');
-              }else {
-                setErrorMessage(error.message);
-              }
+              setErrorMessage(error.message);
             };
           }
         fetchData();
-      }, [currentPage]);
-
+      }, [pokemon, currentPage]);
       
     useEffect(()=>{
       const sortedPokemon = [...pokemon];
