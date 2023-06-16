@@ -5,10 +5,8 @@ import axios from 'axios';
 import Loading from "../components/Loading";
 import FilterContainer from "../components/FilterContainer";
 function Catalog() {
-
     const [pokemon, setPokemon] = useState([]);
     const [sortedPokemon, setSortedPokemon] = useState([]);
-    const [sortOption, setSortOption] = useState('Sort By');
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon?limit=136");
@@ -33,17 +31,10 @@ function Catalog() {
           }
         fetchData();
       }, [currentPage]);
+
     useEffect(()=>{
-      const sortedPokemon = [...pokemon];
-        if (sortOption === 'name') {
-          setCurrentPage(sortedPokemon.sort((a, b) => a.name.localeCompare(b.name)));
-        } else if (sortOption === 'type') {
-          setCurrentPage(sortedPokemon.sort((a, b) => a.types[0].type.name.localeCompare(b.types[0].type.name)));
-        } else {
-          setCurrentPage(sortedPokemon)
-        }
-        setSortedPokemon(sortedPokemon);        
-      }, [pokemon, sortOption])
+      setSortedPokemon(pokemon);
+      }, [pokemon])
       
   return (
     <>
@@ -52,7 +43,7 @@ function Catalog() {
       <Helmet>
         <title>Pokedex</title>
       </Helmet>
-      <FilterContainer sortOption={sortOption} setSortOption={setSortOption}/>
+      <FilterContainer setSortedPokemon={setSortedPokemon} pokemon={pokemon}/>
         <div className="catalog container">
             {sortedPokemon ?
              sortedPokemon.map((p, index) => 

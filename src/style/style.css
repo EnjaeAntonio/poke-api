@@ -160,7 +160,7 @@ select, option{
 }
 
 .details {
-  min-height: calc(100vh - 147px);
+  min-height: calc(100vh - 144.5px);
   display: grid;
   place-items: center;
   background-color: #f2f2f2;
@@ -219,7 +219,7 @@ select, option{
 
 
 footer{
-  background-color:  #d1d1d1;
+  background-color:  var(--app-red);
 }
 
 .footer-wrapper {
@@ -277,6 +277,94 @@ footer{
   animation: spin 1.5s linear infinite;
 }
 
+.form-wrapper {
+  max-width: 100%;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  background-color: #ffffff;
+}
+
+h2 .red {
+  color: var(--app-red);
+}
+
+h2 .green {
+  color: var(--app-green);
+}
+
+input[type="text"],
+input[type="file"],
+select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+
+input[type="submit"] {
+  background-color: var(--app-yellow);
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-family: 'Luckiest Guy', cursive;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition-duration: 0.4s;
+}
+
+
+.input-wrapper p {
+  color: var(--app-red);
+  min-height: 1rem;
+  font-size: .6rem;
+}
+.center{
+  min-height: calc(100vh - 144.5px);
+  display: grid;
+  place-items: center;
+  justify-content: center;
+}
+
+
+.input-wrapper:nth-child(even) {
+}
+
+.create p {
+  min-width: 20rem;
+}
+
+.not-found {
+  color: var(--app-red);
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  place-items: center;
+  margin: 0 1rem;
+}
+
+.not-found h1 {
+  font-size: 2.1rem;
+}
+
+.not-found p {
+  font-size: .8rem;
+}
+
+.not-found img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
 @media(max-width: 720px){
   .details-pokemon{
     display: grid;
@@ -312,6 +400,16 @@ footer{
   .pokedex-title{
     justify-content: center;
   }
+
+  .form-wrapper{
+    margin: 1rem 0;
+  }
+  form {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    background-color: #ffffff;
+  }
+ 
 }
 
 @media(max-width: 472px){
@@ -328,6 +426,7 @@ footer{
   .footer-nav ul li a {
     font-size: .7rem;
   }
+
 }
 
 
