@@ -18,7 +18,8 @@ function App() {
         <Route path="/pokemon/:id" element={<Detail />} />
         <Route path="/create-pokemon" element={<NewPokemonForm />} />
         <Route path="/not-found" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/not-found" />} />      </Routes>
+        <Route path="*" element={<Navigate to="/not-found" />} />      
+        </Routes>
       <Footer 
       />
     </div>
