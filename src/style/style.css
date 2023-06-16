@@ -63,11 +63,21 @@ nav ul li + li {
 
 .options {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(3, auto);
   place-items: center;
   justify-content: right;
-  gap: 1rem;
+  gap: .6rem;
   margin: 1rem 0;
+}
+
+select, option{
+  cursor: pointer;
+}
+
+.pokedex-title{
+  display: grid;
+  place-items: center;
+  justify-content: left;
 }
 
 .filter {
@@ -100,6 +110,7 @@ nav ul li + li {
   margin: 1rem 0;
   cursor: pointer;
   transition: transform 0.2s;
+  animation: fadeInMoveIn .8s ease-out forwards;
 }
 
 .pokemon:hover {
@@ -132,7 +143,7 @@ nav ul li + li {
 
 .pokemon p {
   font-size: 0.9rem;
-  color: #666;
+  color: #000;
   text-align: center;
   margin: 0.25rem 0.5rem;
   background-color: #fff;
@@ -156,6 +167,7 @@ nav ul li + li {
   background-color: #f2f2f2;
 }
 
+
 .details-pokemon {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -164,6 +176,7 @@ nav ul li + li {
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  animation: fadeInMoveIn .8s ease-out forwards;
 }
 
 .details-pokemon img {
@@ -251,42 +264,10 @@ footer{
   margin-left: 10px;
 }
 
-.loader {
+.loader{
   display: block;
-  position: relative;
-  width: 150px;
   height: 150px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: var(--app-red);
-  -webkit-animation: spin 2s linear infinite; 
-  animation: spin 2s linear infinite;
-}
-
-.loader:before {
-  content: '';
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: var(--app-red);
-  -webkit-animation: spin 3s linear infinite; 
-  animation: spin 3s linear infinite;
-}
-
-.loader:after {
-  content: '';
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: var(--app-red);
+  width: 150px;
   -webkit-animation: spin 1.5s linear infinite; 
   animation: spin 1.5s linear infinite;
 }
@@ -297,5 +278,16 @@ footer{
   }
   100% { 
     transform: rotate(360deg); 
+  }
+}
+
+@keyframes fadeInMoveIn {
+  0% {
+    opacity: 0;
+    transform: translatey(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translatey(0);
   }
 }

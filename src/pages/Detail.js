@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import axios from 'axios'; 
 import Loading from "../components/Loading";
-import { Link } from 'react-router-dom';
 function Detail() {
     const { id } = useParams();
     const [errorMessage, setErrorMessage] = useState('');
@@ -34,9 +35,13 @@ function Detail() {
 
   return (
     <div className="details container">
+      <Helmet>
+        <title>{pokemonDetails.name} details</title>
+      </Helmet>
+      {pokemonDetails ?      
       <div className="details-pokemon">
         <div>
-        <img src={pokemonDetails.sprites.other["official-artwork"].front_default} alt={pokemonDetails.name} />        
+          <img src={pokemonDetails.sprites.other["official-artwork"].front_default} alt={pokemonDetails.name} />        
         </div>
         <div className="details-text">
           <h1>{pokemonDetails.name}</h1>
@@ -45,7 +50,10 @@ function Detail() {
           <p>Number of Moves: {pokemonDetails.moves.length}</p>
           <Link to="/">Back to Pokedex</Link>
         </div>
-      </div>
+      </div> :
+      <div>{errorMessage}</div>
+      }
+ 
     </div>
   )
 }

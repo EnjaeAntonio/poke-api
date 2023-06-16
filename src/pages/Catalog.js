@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import Loading from "../components/Loading";
 import FilterContainer from "../components/FilterContainer";
@@ -14,15 +15,19 @@ function Catalog() {
     useEffect(() => {      
         const fetchData = async () => {
           try {
-            setIsLoading(true);
+            setIsLoading(true)
             const response = await axios.get(currentPage);
             const details = await Promise.all(
                 response.data.results.map((p) => axios.get(p.url))
             );
             setPokemon(details.map((p) => ({...p.data, types: p.data.types})));
-            setIsLoading(false);
-          } catch (error) {
+            setTimeout(() =>{
               setIsLoading(false);
+            },1000)
+          } catch (error) {
+              setTimeout(() =>{
+                setIsLoading(false);
+              },1000)
               if (error.response && error.response.status === 404){
                 setErrorMessage('Pokemon Not Found');
               }else {
@@ -40,7 +45,9 @@ function Catalog() {
           setCurrentPage(sortedPokemon.sort((a, b) => a.name.localeCompare(b.name)));
         } else if (sortOption === 'type') {
           setCurrentPage(sortedPokemon.sort((a, b) => a.types[0].type.name.localeCompare(b.types[0].type.name)));
-        } 
+        } else {
+          setCurrentPage(sortedPokemon)
+        }
         setSortedPokemon(sortedPokemon);        
       }, [pokemon, sortOption])
 
@@ -49,11 +56,15 @@ function Catalog() {
           <Loading />
         ) 
       }
-    
+      
   return (
-    <div className="container">
+    <div>
+      <Helmet>
+        <title>Pokedex</title>
+      </Helmet>
+
       <FilterContainer sortOption={sortOption} setSortOption={setSortOption}/>
-        <div className="catalog">
+        <div className="catalog container">
             {sortedPokemon ?
              sortedPokemon.map((p, index) => 
               <div className="pokemon" key={index}>

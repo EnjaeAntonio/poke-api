@@ -1,6 +1,5 @@
 import './style/style.css';
 import { Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import Header from './components/Header';
 import Catalog from "./pages/Catalog";
 import Detail from "./pages/Detail";
@@ -15,7 +14,7 @@ function App() {
     <div className="">
       <Header />
       <Routes>
-        <Route path="/" element={<Catalog />} />
+        <Route path="/" element={<Catalog />}/>
         <Route path="/pokemon/:id" element={<Detail />} />
         <Route path="/create-pokemon" element={<NewPokemonForm />} />
         <Route path="/not-found" element={<NotFound />} />
