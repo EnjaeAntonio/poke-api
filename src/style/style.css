@@ -110,7 +110,6 @@ select, option{
   margin: 1rem 0;
   cursor: pointer;
   transition: transform 0.2s;
-  animation: fadeInMoveIn .8s ease-out forwards;
 }
 
 .pokemon:hover {
