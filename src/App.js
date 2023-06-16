@@ -1,5 +1,5 @@
 import './style/style.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Catalog from "./pages/Catalog";
 import Detail from "./pages/Detail";
@@ -18,9 +18,8 @@ function App() {
         <Route path="/pokemon/:id" element={<Detail />} />
         <Route path="/create-pokemon" element={<NewPokemonForm />} />
         <Route path="/not-found" element={<NotFound />} />
-      </Routes>
+        <Route path="*" element={<Navigate to="/not-found" />} />      </Routes>
       <Footer 
-      
       />
     </div>
   );
