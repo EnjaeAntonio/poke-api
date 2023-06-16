@@ -1,11 +1,13 @@
-import Catalog from "./components/Catalog";
-import Detail from "./components/Detail";
-import NewPokemonForm from "./components/NewPokemonForm";
-import NotFound from "./components/NotFound";
-import Header from "./components/Header";
 import './style/style.css';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Header from './components/Header';
+import Catalog from "./pages/Catalog";
+import Detail from "./pages/Detail";
+import NewPokemonForm from "./pages/NewPokemonForm";
+import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
+
 function App() {
 
   return (

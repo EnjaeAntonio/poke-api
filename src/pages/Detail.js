@@ -1,36 +1,36 @@
 import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import axios from 'axios'; 
+import Loading from "../components/Loading";
 import { Link } from 'react-router-dom';
 function Detail() {
     const { id } = useParams();
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [pokemonDetails, setPokemonDetails] = useState(null);
-
+    const pokeURL = `https://pokeapi.co/api/v2/pokemon/${id}`
     useEffect(() => {
-        const fetchData = async () => {
-
-            try{
-              const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-              setPokemonDetails(response.data);
-              console.log(response.data)
-              setTimeout(() => {
+        const fetchData = () => {
+            axios.get(pokeURL)
+            .then(res => {
+              setPokemonDetails(res.data);
+              setTimeout(()=>{
                 setIsLoading(false);
-              }, 2000 )
-            }catch (err){
+              }, 2000)
+              
+            })
+            .catch(err => {
               setErrorMessage(err);
-            }
+            })
         }
         fetchData();
     }, [id]);
 
     if (isLoading) {
       return (
-        <div className="details">
-          <div className="loader"></div>
-        </div>
-      );}
+        <Loading />
+      )
+    }
 
   return (
     <div className="details container">
