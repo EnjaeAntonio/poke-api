@@ -9,21 +9,22 @@ header {
 
 .title {
   width: 30%;
-  height: 40px;
+  display: grid;
+  place-items: center;
+  justify-content: left;
 }
 
 .title img {
   height: auto;
-  width: 130px;
-  margin-top: .4rem;
+  width: 100px;
 }
 
-nav {
+header nav {
   width: 70%;
   text-align: right;
 }
 
-nav ul {
+header nav ul {
   list-style: none;
 }
 
@@ -33,7 +34,7 @@ nav ul li{
   cursor: default;
 }
 
-nav ul li a {
+header nav ul li a {
   font-size: 1.1rem;
   letter-spacing: 1px;
   color: #fff;
@@ -42,7 +43,7 @@ nav ul li a {
   cursor: pointer;
 }
 
-nav ul li a:hover {
+header nav ul li a:hover {
   text-decoration: underline #fff;
 }
 
@@ -97,7 +98,6 @@ select, option{
   border-radius: 4px;
   cursor: pointer;
 }
-
 
 .pokemon {
   background-color: #f0f0f0;
@@ -160,12 +160,11 @@ select, option{
 }
 
 .details {
-  min-height: calc(100vh - 129px);
+  min-height: calc(100vh - 147px);
   display: grid;
   place-items: center;
   background-color: #f2f2f2;
 }
-
 
 .details-pokemon {
   display: grid;
@@ -218,34 +217,41 @@ select, option{
   background-color: #d32f2f;
 }
 
+
 footer{
-  display: grid;
-  align-items: center;
   background-color:  #d1d1d1;
 }
 
+.footer-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
 .footer-nav {
-  width: 50%;
+  display: grid;
+  justify-content: right;
   text-align: right;
 }
 
-.copyright-wrapper{
+.copyright-wrapper{ 
   display: flex;
+  gap: 1rem;
   align-items: center;
-  gap: 10px;
-  width: 50%;
+  justify-content: left;
 }
 .copyright-wrapper p {
   font-size: 14px;
+
 }
 
 .footer-nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
   list-style: none;
 }
 
 .footer-nav ul li {
   display: inline;
-  line-height: 56px;
   cursor: default;
 }
 
@@ -272,6 +278,11 @@ footer{
 }
 
 @media(max-width: 720px){
+  .details-pokemon{
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, auto);
+  }
   .catalog {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -279,12 +290,10 @@ footer{
   nav ul li a {
     font-size: 1rem;
   }
-}
-
-@media(max-width: 472px){
+  
   .catalog {
     display: grid;
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: repeat(2, auto);
   }
   .button-wrapper {
     display: grid;
@@ -294,8 +303,22 @@ footer{
   .pokedex-title{
     justify-content: center;
   }
-  nav ul li a {
+
+}
+
+@media(max-width: 472px){
+  .catalog {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+  }
+  header nav ul li a {
     font-size: .85rem;
+  }
+  .copyright-wrapper p {
+    font-size: 1rem;
+  }
+  .footer-nav ul li a {
+    font-size: .7rem;
   }
 }
 

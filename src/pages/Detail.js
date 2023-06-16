@@ -42,7 +42,9 @@ function Detail() {
             <p>Height: {pokemonDetails.height} ft</p>
             <p>Weight: {pokemonDetails.weight} lbs</p>
             <p>Number of Moves: {pokemonDetails.moves.length}</p>
-            <Link to="/">Back to Pokedex</Link>
+            <div>
+              <Link to="/">Back to Pokedex</Link>
+            </div>
           </div>
         </div> :
         <div>{errorMessage}</div>
