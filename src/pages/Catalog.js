@@ -19,7 +19,7 @@ function Catalog() {
             const details = await Promise.all(
                 response.data.results.map((p) => axios.get(p.url))
             );
-            setPokemon(details.map((p) => ({data: p.data, types: p.data.types})));
+            setPokemon(details.map((p, i) => ({data: p.data, types: p.data.types, default: i})));
             setTimeout(() =>{
               setIsLoading(false);
             },1000)

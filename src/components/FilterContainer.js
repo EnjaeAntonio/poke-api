@@ -4,15 +4,22 @@ function FilterContainer({setPokemon, pokemon}) {
   const handleSortChange = (e) =>{
     const sortOption = e.target.value
     setPokemon((prevPokemon) => {
-      const pokemon = [...prevPokemon];
-      if (sortOption === 'name') {
-        pokemon.sort((a, b) => a.data.name.localeCompare(b.data.name));
-      } else if (sortOption === 'type') {
-        pokemon.sort((a, b) => a.data.types[0].type.name.localeCompare(b.types[0].type.name));
-      } else {
-        return pokemon;
+      const sortedPokemon = [...prevPokemon];
+
+      switch (sortOption){
+        case 'nameAsc':
+          return sortedPokemon.sort((a, b) => a.data.name.localeCompare(b.data.name));
+          case 'nameDesc':
+          return sortedPokemon.sort((a, b) => b.data.name.localeCompare(a.data.name));
+        case 'typeAsc':
+          return sortedPokemon.sort((a, b) => a.data.types[0].type.name.localeCompare(b.types[0].type.name));
+          case 'typeDesc':
+            return sortedPokemon.sort((a, b) => b.data.types[0].type.name.localeCompare(a.types[0].type.name));
+        case 'default': 
+          return sortedPokemon.sort((a, b) => a.default - b.default)
+        default:
+          return sortedPokemon
       }
-      return pokemon;
     });
   };
   
@@ -26,8 +33,10 @@ function FilterContainer({setPokemon, pokemon}) {
             <select className="filter" name="filter" onChange={handleSortChange}>
               <option value="" disabled>Sort By</option>
               <option value="default">Default</option>
-              <option value="name">Name</option>
-              <option value="type">Type (A-Z)</option>
+              <option value="nameAsc">Name: Ascending</option>
+              <option value="nameDesc">Name: Descending</option>
+              <option value="typeAsc">Type: Ascending</option>
+              <option value="typeDesc">Type: Descending</option>
             </select>
             <Link to="/create-pokemon">
               <button className="create-btn">Create Pokemon!</button>
