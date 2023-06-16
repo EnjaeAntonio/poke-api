@@ -17,7 +17,7 @@ function Detail() {
               console.log(response.data)
               setTimeout(() => {
                 setIsLoading(false);
-              }, 3000 )
+              }, 2000 )
             }catch (err){
               setErrorMessage(err);
             }

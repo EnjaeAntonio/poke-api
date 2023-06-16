@@ -6,8 +6,9 @@ function Catalog() {
 
     const [pokemon, setPokemon] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
+    const [sortOption, setSortOption] = useState('Sort By');
     const [isLoading, setIsLoading] = useState(Boolean);
-    const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon");
+    const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon?limit=136");
 
     useEffect(() => {      
         const fetchData = async () => {
@@ -22,7 +23,7 @@ function Catalog() {
           } catch (error) {
               setIsLoading(false);
               if (error.response && error.response.status === 404){
-                setErrorMessage('User Not Found');
+                setErrorMessage('Pokemon Not Found');
               }else {
                 setErrorMessage(error.message);
               }
@@ -30,6 +31,14 @@ function Catalog() {
           }
         fetchData();
       }, [currentPage]);
+
+      let displayedPokemon = pokemon;
+
+      if (sortOption === 'name') {
+          displayedPokemon = [...pokemon].sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sortOption === 'type') {
+          displayedPokemon = [...pokemon].sort((a, b) => a.types[0].type.name.localeCompare(b.types[0].type.name));
+      } 
 
       if (isLoading) {
         return (
@@ -43,12 +52,20 @@ function Catalog() {
     <div className="container">
         <div className="button-wrapper">
           <h1>Pokedex</h1>
-          <div className="buttons">
-            
+          <div className="options">
+            <select className="filter" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
+              <option value="Sort By" disabled>Filter</option>
+              <option value="Original">Original</option>
+              <option value="name">Name</option>
+              <option value="type">Type</option>
+            </select>
+            <Link to="/create-pokemon">
+            <button className="create-btn">Create Pokemon!</button>
+            </Link>
           </div>
         </div>
         <div className="catalog">
-            {pokemon.map((p, index) => 
+            {displayedPokemon.map((p, index) => 
             <div className="pokemon" key={index}>
             <Link to={`/pokemon/${p.id}`} key={p.id}>
               <img src={p.sprites.other["official-artwork"].front_default} alt={p.name} />        
@@ -57,8 +74,7 @@ function Catalog() {
                     {p.types.map((type) => (
                     <p>{type.type.name}</p>
                     ))}
-                </div>
-
+                </div>  
             </Link>
             </div>
             )}
