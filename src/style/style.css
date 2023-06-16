@@ -1,25 +1,25 @@
 @import url(./reset.css);
 
 header {
-  height: 56px;
+  height: var(--line-height);
   overflow: hidden;
   background-color: var(--app-red);
   width: 100%;
 }
 
 .title {
-  width: 10%;
+  width: 30%;
   height: 40px;
 }
 
 .title img {
-  height: 100%;
+  height: auto;
+  width: 130px;
   margin-top: .4rem;
-  width: 100%;
 }
 
 nav {
-  width: 90%;
+  width: 70%;
   text-align: right;
 }
 
@@ -161,7 +161,7 @@ select, option{
 }
 
 .details {
-  min-height: calc(100vh - 113px);
+  min-height: calc(100vh - 129px);
   display: grid;
   place-items: center;
   background-color: #f2f2f2;
@@ -271,6 +271,35 @@ footer{
   -webkit-animation: spin 1.5s linear infinite; 
   animation: spin 1.5s linear infinite;
 }
+
+@media(max-width: 720px){
+  .catalog {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+  nav ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media(max-width: 472px){
+  .catalog {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+  }
+  .button-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    justify-content: center;
+  }
+  .pokedex-title{
+    justify-content: center;
+  }
+  nav ul li a {
+    font-size: .85rem;
+  }
+}
+
 
 @keyframes spin {
   0% { 

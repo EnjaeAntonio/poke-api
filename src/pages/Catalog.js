@@ -7,11 +7,11 @@ import FilterContainer from "../components/FilterContainer";
 function Catalog() {
 
     const [pokemon, setPokemon] = useState([]);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [sortedPokemon, setSortedPokemon] = useState([]);
     const [sortOption, setSortOption] = useState('Sort By');
     const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon?limit=136");
-    const [sortedPokemon, setSortedPokemon] = useState([]);
     useEffect(() => {      
         const fetchData = async () => {
           try {
@@ -50,19 +50,14 @@ function Catalog() {
         }
         setSortedPokemon(sortedPokemon);        
       }, [pokemon, sortOption])
-
-      if (isLoading) {
-        return(
-          <Loading />
-        ) 
-      }
       
   return (
-    <div>
+    <>
+      {isLoading ? <Loading/>
+      : <div>
       <Helmet>
         <title>Pokedex</title>
       </Helmet>
-
       <FilterContainer sortOption={sortOption} setSortOption={setSortOption}/>
         <div className="catalog container">
             {sortedPokemon ?
@@ -82,7 +77,9 @@ function Catalog() {
             <div className="catalog">{errorMessage}</div>
             }
         </div>
-    </div>
+      </div> 
+      }
+    </>
   )
 }
 
