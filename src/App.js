@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Catalog />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/pokemon/:id" element={<Detail />} />
         <Route path="/create-pokemon" element={<NewPokemonForm />} />
         <Route path="/not-found" element={<NotFound />} />
       </Routes>
