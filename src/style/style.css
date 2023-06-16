@@ -185,8 +185,7 @@ select, option{
 }
 
 .details-text {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   width: 100%;
 }
 
