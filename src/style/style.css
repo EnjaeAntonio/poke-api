@@ -169,7 +169,7 @@ select, option{
 .details-pokemon {
   display: grid;
   grid-template-columns: repeat(2, auto);
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   gap: 2rem;
   background-color: #fff;
   border-radius: 15px;
@@ -186,20 +186,19 @@ select, option{
 
 .details-text {
   display: grid;
+  gap: 1rem;
   width: 100%;
 }
 
 .details-text h1 {
   font-size: 2rem;
   color: #333;
-  margin-bottom: 0.5rem;
   text-transform: capitalize;
 }
 
 .details-text p {
   font-size: 1.25rem;
   color: #666;
-  margin-bottom: 0.5rem;
 }
 
 .details-text a {
