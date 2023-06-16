@@ -8,8 +8,8 @@ function NewPokemonForm() {
   
   useEffect(()=>{
     setIsLoading(true);
-    
     const timer = setTimeout(()=>{
+      setIsLoading(false)
     },1000)
     return () => clearTimeout(timer);
   },[])
@@ -43,7 +43,6 @@ function NewPokemonForm() {
      <title>Create Pokemon</title>
    </Helmet>
       <section className="center container">
-
         <div className="form-wrapper">
             <h2>Explore the wonders of <span className="green">nature</span> and craft your unique <span className="red">Pokémon!</span></h2>
             <form onSubmit={handleSubmit(onSubmit)}>

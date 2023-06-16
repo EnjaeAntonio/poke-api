@@ -336,9 +336,6 @@ input[type="submit"] {
 }
 
 
-.input-wrapper:nth-child(even) {
-}
-
 .create p {
   min-width: 20rem;
 }
@@ -410,6 +407,10 @@ input[type="submit"] {
     background-color: #ffffff;
   }
  
+  .form-wrapper h2 {
+    font-size: 1.8rem;
+  }
+
 }
 
 @media(max-width: 472px){

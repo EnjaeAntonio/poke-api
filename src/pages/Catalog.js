@@ -10,6 +10,8 @@ function Catalog() {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon?limit=136");
+    // IMPLEMENT PAGINATION
+    // MAYBE ADD SEARCH BAR?
     useEffect(() => {      
         const fetchData = async () => {
           try {
