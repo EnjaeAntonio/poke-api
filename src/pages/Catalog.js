@@ -57,7 +57,7 @@ function Catalog() {
             {sortedPokemon ?
              sortedPokemon.map((p, index) => 
               <div className="pokemon" key={index}>
-                <Link to={`/pokemon/${p.data.id}`} key={p.id}>
+                <Link to={`/pokemon/${p.data.id}`} key={p.data.id}>
                   <img src={p.data.sprites.other["official-artwork"].front_default} alt={p.data.name} />        
                     <h2>{p.data.name}</h2>
                     <div className="flexbox">
