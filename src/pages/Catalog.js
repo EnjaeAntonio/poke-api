@@ -20,7 +20,7 @@ function Catalog() {
             const details = await Promise.all(
                 response.data.results.map((p) => axios.get(p.url))
             );
-            setPokemon(details.map((p) => ({...p.data, types: p.data.types})));
+            setPokemon(details.map((p) => ({data: p.data, types: p.data.types})));
             setTimeout(() =>{
               setIsLoading(false);
             },1000)
@@ -57,11 +57,11 @@ function Catalog() {
             {sortedPokemon ?
              sortedPokemon.map((p, index) => 
               <div className="pokemon" key={index}>
-                <Link to={`/pokemon/${p.id}`} key={p.id}>
-                  <img src={p.sprites.other["official-artwork"].front_default} alt={p.name} />        
-                    <h2>{p.name}</h2>
+                <Link to={`/pokemon/${p.data.id}`} key={p.id}>
+                  <img src={p.data.sprites.other["official-artwork"].front_default} alt={p.data.name} />        
+                    <h2>{p.data.name}</h2>
                     <div className="flexbox">
-                        {p.types.map((type, index) => (
+                        {p.data.types.map((type, index) => (
                         <p key={index}>{type.type.name}</p>
                         ))}
                     </div>  
