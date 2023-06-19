@@ -8,7 +8,7 @@ function Catalog() {
     const [pokemon, setPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const POKEMON_URL = useState("https://pokeapi.co/api/v2/pokemon?limit=151");
+    const POKEMON_URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
     // IMPLEMENT PAGINATION
     // MAYBE ADD SEARCH BAR?
     useEffect(() => {      
@@ -21,7 +21,7 @@ function Catalog() {
             );
             setPokemon(details.map((p, i) => ({data: p.data, types: p.data.types, default: i})));
             setTimeout(() =>{
-              setIsLoading(false);
+              setIsLoading(false); 
             },1000)
           } catch (error) {
               setTimeout(() =>{
