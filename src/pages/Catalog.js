@@ -8,14 +8,14 @@ function Catalog() {
     const [pokemon, setPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon?limit=151");
+    const POKEMON_URL = useState("https://pokeapi.co/api/v2/pokemon?limit=151");
     // IMPLEMENT PAGINATION
     // MAYBE ADD SEARCH BAR?
     useEffect(() => {      
         const fetchData = async () => {
           try {
             setIsLoading(true)
-            const response = await axios.get(currentPage);
+            const response = await axios.get(POKEMON_URL);
             const details = await Promise.all(
                 response.data.results.map((p) => axios.get(p.url))
             );
@@ -31,7 +31,7 @@ function Catalog() {
             };
           }
         fetchData();
-      }, [currentPage]);
+      }, []);
 
     useEffect(()=>{
       setPokemon(pokemon);
