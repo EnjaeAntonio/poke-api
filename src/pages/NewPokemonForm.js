@@ -34,7 +34,7 @@ function NewPokemonForm() {
   {background: "rgb(255,60,87)", background: "linear-gradient(90deg, rgba(255,60,87,1) 0%, rgba(53,53,53,1) 2%)", color: "#fff"} 
   : {};
 
-  const onSubmit = (data) =>{ setMessage(`Your Pokemon ${data.basePokemonName} has been created in ${data.region} region}!`); }
+  const onSubmit = (data) =>{ setMessage(`Your Pokemon ${data.basePokemonName} has been created in ${data.region} region!`); }
 
   return (
    isLoading ? <Loading/> :
@@ -44,7 +44,7 @@ function NewPokemonForm() {
    </Helmet>
       <section className="center container">
         <div className="form-wrapper">
-            <h2>Explore the wonders of <span className="green">nature</span> and craft your unique <span className="red">Pokémon!</span></h2>
+            <h2>Explore the wonders of <span className="green">DAMES DINK</span> and craft your unique <span className="red">Pokémon!</span></h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-wrapper">
                     <h3>Base Name</h3>

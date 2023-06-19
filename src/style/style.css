@@ -168,9 +168,9 @@ select, option{
 
 .details-pokemon {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   padding: 1.5rem 2rem;
-  gap: 2rem;
+  column-gap: 2rem;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -186,7 +186,7 @@ select, option{
 
 .details-text {
   display: grid;
-  gap: 1rem;
+  row-gap: 1rem;
   width: 100%;
 }
 
