@@ -47,10 +47,10 @@ function FilterContainer({setPokemon, setCurrentPage, nextPageURL, prevPageURL})
             <Link to="/create-pokemon">
               <button className="create-btn">Create Pokemon!</button>
             </Link>
-          </div>
-          <div className="pagination-wrapper">
-            <button onClick={prevPage}>Previous</button>
-            <button onClick={nextPage}>Next</button>
+            <div className="pagination-wrapper">
+              <button className="btn prev-btn" onClick={prevPage}>Previous</button>
+              <button className="btn next-btn" onClick={nextPage}>Next</button>
+            </div>
           </div>
         </div>
     </div>

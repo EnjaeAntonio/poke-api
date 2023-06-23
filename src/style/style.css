@@ -61,6 +61,20 @@ nav ul li + li {
   display: grid;
   margin: .8rem 0;
   grid-template-columns: repeat(2, auto);
+  width: 100%;
+}
+
+.btn {
+  padding: 4px 12px;
+  color: #fff;
+}
+
+.prev-btn {
+  background-color: var(--app-red);
+}
+
+.next-btn {
+  background-color: var(--app-green);
 }
 
 .options {
@@ -69,6 +83,13 @@ nav ul li + li {
   place-items: center;
   justify-content: right;
   gap: .6rem;
+}
+
+.pagination-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: 2;
+  gap: .3rem;
 }
 
 select, option{

@@ -8,7 +8,7 @@ function Catalog() {
     const [pokemon, setPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const [currentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?limit=10`);
+    const [currentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?limit=21`);
     const [nextPageURL, setNextPageURL] = useState();
     const [prevPageURL, setPrevPageURL] = useState();
     // IMPLEMENT PAGINATION
