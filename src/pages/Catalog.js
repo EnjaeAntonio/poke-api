@@ -8,34 +8,48 @@ function Catalog() {
     const [pokemon, setPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const POKEMON_URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
+    const [currentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?limit=10`);
+    const [nextPageURL, setNextPageURL] = useState();
+    const [prevPageURL, setPrevPageURL] = useState();
     // IMPLEMENT PAGINATION
     // MAYBE ADD SEARCH BAR?
     useEffect(() => {      
         const fetchData = async () => {
           try {
-            setIsLoading(true)
-            const response = await axios.get(POKEMON_URL);
+            setIsLoading(true);
+            const response = await axios.get(currentPage);
+
+            setNextPageURL(response.data.next);
+            setPrevPageURL(response.data.previous);
+
             const details = await Promise.all(
                 response.data.results.map((p) => axios.get(p.url))
             );
-            setPokemon(details.map((p, i) => ({data: p.data, types: p.data.types, default: i})));
+            setPokemon(
+              details.map((p, i) =>
+               ({data: p.data, 
+                types: p.data.types, 
+                default: i,
+              }))
+            );
             setTimeout(() =>{
-              setIsLoading(false); 
+              setIsLoading(false);  
             },1000)
           } catch (error) {
+              setErrorMessage(error.message);
               setTimeout(() =>{
                 setIsLoading(false);
-              },1000)
-              setErrorMessage(error.message);
+              }, 1000)
             };
           }
         fetchData();
-      }, []);
+      }, [currentPage]);
 
     useEffect(()=>{
       setPokemon(pokemon);
-      }, [pokemon])
+    }, [pokemon]);
+    
+
       
   return (
     <>
@@ -44,7 +58,7 @@ function Catalog() {
       <Helmet>
         <title>Pokedex</title>
       </Helmet>
-      <FilterContainer setPokemon={setPokemon} pokemon={pokemon}/>
+      <FilterContainer setPokemon={setPokemon} pokemon={pokemon} prevPageURL={prevPageURL} nextPageURL={nextPageURL} setCurrentPage={setCurrentPage}/>
         <div className="catalog container">
             {pokemon ?
              pokemon.map((p, index) => 

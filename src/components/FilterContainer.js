@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
-function FilterContainer({setPokemon, pokemon}) {
+function FilterContainer({setPokemon, setCurrentPage, nextPageURL, prevPageURL}) {
 
+  const nextPage = () => {
+    setCurrentPage(nextPageURL);
+  }
+  const prevPage = () => {
+    setCurrentPage(prevPageURL);
+  }
   const handleSortChange = (e) =>{
     const sortOption = e.target.value
     setPokemon((prevPokemon) => {
@@ -41,6 +47,10 @@ function FilterContainer({setPokemon, pokemon}) {
             <Link to="/create-pokemon">
               <button className="create-btn">Create Pokemon!</button>
             </Link>
+          </div>
+          <div className="pagination-wrapper">
+            <button onClick={prevPage}>Previous</button>
+            <button onClick={nextPage}>Next</button>
           </div>
         </div>
     </div>

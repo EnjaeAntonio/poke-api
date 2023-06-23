@@ -10,6 +10,7 @@ function Detail() {
     const [isLoading, setIsLoading] = useState(true);
     const [pokemonDetails, setPokemonDetails] = useState(null);
     const pokeURL = `https://pokeapi.co/api/v2/pokemon/${id}`
+    
     useEffect(() => {
         const fetchData = () => {
             axios.get(pokeURL)
