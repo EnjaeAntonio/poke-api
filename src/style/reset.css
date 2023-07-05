@@ -3,93 +3,116 @@
                                                     
 ---------------------------------------------------- */
 .container {
-  width: min(100% - 30px, 1080px);
-  margin-inline: auto;
+	width: min(100% - 30px, 1080px);
+	margin-inline: auto;
 }
 
 .flexbox {
-  display: flex;
+	display: flex;
 }
 
 :root {
-  --app-dark-bg: #1a1d28;
-  --app-light-bg: #f0f2f4;
-  --app-red: #ff3c57;
-  --app-green: #33ab4e;
-  --app-purple: #833cff;
-  --app-orange: #ff833c;
-  --app-yellow: #FFDF00;
-  --app-blue: #5d73ff;
-  --app-blue-hover: #364ee6;
-  --line-height: 72px;
- }
+	--app-dark-bg: #1a1d28;
+	--app-light-bg: #f0f2f4;
+	--app-red: #ff3c57;
+	--app-green: #33ab4e;
+	--app-purple: #833cff;
+	--app-orange: #ff833c;
+	--app-yellow: #ffdf00;
+	--app-blue: #5d73ff;
+	--app-blue-hover: #364ee6;
+	--line-height: 72px;
+}
 
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: inherit;
-  outline: none;
-  border-style: none;
-  vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+	outline: none;
+	border-style: none;
+	vertical-align: baseline;
 }
 
 html {
-  height: 100%;
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 100%;
-  font-weight: 400;
-  line-height: 1.5;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	height: 100%;
+	font-family: "Nunito Sans", sans-serif;
+	font-size: 100%;
+	font-weight: 400;
+	line-height: 1.5;
+	text-rendering: geometricPrecision;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--app-light-bg);
-  height: 100%;
+	background: var(--app-light-bg);
+	height: 100%;
 }
 
-ul, ol {
-  list-style: none;
+ul,
+ol {
+	list-style: none;
 }
 
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-  font-family: 'Luckiest Guy', cursive;
-  letter-spacing: 1px;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+	font-family: "Luckiest Guy", cursive;
+	letter-spacing: 1px;
 }
 
-li, a, i, figure, img, button,
-input[type=button], input[type=submit] {
-  -webkit-user-select: none;
-     -moz-user-select: none; 
-          user-select: none;
+li,
+a,
+i,
+figure,
+img,
+button,
+input[type="button"],
+input[type="submit"] {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
 }
 
-
-input[type=button], input[type=submit], input[type=clear], button, a {
-  cursor: pointer;
+input[type="button"],
+input[type="submit"],
+input[type="clear"],
+button,
+a {
+	cursor: pointer;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
+	html:focus-within {
+		scroll-behavior: auto;
+	}
 
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
-
